@@ -47,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    bool showLongAppBar = false;
     return Stack(
       children: <Widget>[
         new Container(
@@ -64,49 +65,80 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: new AppBar(
-            title: new Text(widget.title, style: TextStyle(fontSize: 25)),
-            backgroundColor: Colors.transparent,
-            elevation: 0.0,
-            actions: <Widget>[
-              GestureDetector(
-                onTap: () { print("Home was tapped!"); },
-                child: Center(child: Text("Home", style: TextStyle(fontSize: 20))),
-              ),
-              GestureDetector(
-                onTap: () { print("Vending Products was tapped!"); },
-                child: Center(child:
-                  Padding(
-                      padding: EdgeInsets.only(left: 8),
-                      child: Text("Vending Products", style: TextStyle(fontSize: 20))
-                  )
-                ),
-              ),
-              GestureDetector(
-                onTap: () { print("Vending Services was tapped!"); },
-                child: Center(child:
-                  Padding(
-                      padding: EdgeInsets.only(left: 8),
-                      child: Text("Vending Services", style: TextStyle(fontSize: 20))
-                  )
-                ),
-              ),
-              GestureDetector(
-                onTap: () { print("Contact Us was tapped!"); },
-                child: Center(child:
-                  Padding(
-                      padding: EdgeInsets.only(left: 8, right: 8),
-                      child: Text("Contact Us", style: TextStyle(fontSize: 20))
-                  )
-                ),
-              ),
-            ],
-          ),
+          appBar: getAppBar(showLongAppBar),
+          endDrawer: showLongAppBar ? Container() :
+            Theme(
+              data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
+              child: Drawer(
+                child: ListView(
+                    padding: EdgeInsets.zero,
+                    children: getAppBarActions(true)
+                  ),
+                elevation: 0,
+              )
+            ),
           body: new Container(
             color: Colors.transparent,
           ),
         ),
       ],
     );
+  }
+
+  AppBar getAppBar(bool showLongAppBar) {
+    if (showLongAppBar) {
+      return new AppBar(
+        title: new Text(widget.title, style: TextStyle(fontSize: 25)),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        actions: getAppBarActions(false),
+      );
+    }
+    return new AppBar(
+      title: new Text(widget.title, style: TextStyle(fontSize: 25)),
+      backgroundColor: Colors.transparent,
+      elevation: 0.0,
+      automaticallyImplyLeading: false,
+    );
+  }
+
+  List<Widget> getAppBarActions(bool fromHamburgerMenu) {
+    return <Widget>[
+      fromHamburgerMenu ? Padding(padding: EdgeInsets.only(top: 5)) : Container(),
+      GestureDetector(
+        onTap: () { print("Home was tapped!"); },
+        child: Center(child: Text("Home", style: TextStyle(fontSize: 20))),
+      ),
+      fromHamburgerMenu ? Padding(padding: EdgeInsets.only(top: 5)) : Container(),
+      GestureDetector(
+        onTap: () { print("Vending Products was tapped!"); },
+        child: Center(child:
+        Padding(
+            padding: EdgeInsets.only(left: 8),
+            child: Text("Vending Products", style: TextStyle(fontSize: 20))
+        )
+        ),
+      ),
+      fromHamburgerMenu ? Padding(padding: EdgeInsets.only(top: 5)) : Container(),
+      GestureDetector(
+        onTap: () { print("Vending Services was tapped!"); },
+        child: Center(child:
+        Padding(
+            padding: EdgeInsets.only(left: 8),
+            child: Text("Vending Services", style: TextStyle(fontSize: 20))
+        )
+        ),
+      ),
+      fromHamburgerMenu ? Padding(padding: EdgeInsets.only(top: 5)) : Container(),
+      GestureDetector(
+        onTap: () { print("Contact Us was tapped!"); },
+        child: Center(child:
+        Padding(
+            padding: EdgeInsets.only(left: 8, right: 8),
+            child: Text("Contact Us", style: TextStyle(fontSize: 20))
+        )
+        ),
+      ),
+    ];
   }
 }

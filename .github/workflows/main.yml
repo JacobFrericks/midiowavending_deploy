@@ -26,6 +26,7 @@ jobs:
           flutter build web
           git status
           ls -la build/web
+          rm -rf .gitignore
           git add .
           git commit -m "Building Web"
           git subtree split --prefix build/web -b gh-pages

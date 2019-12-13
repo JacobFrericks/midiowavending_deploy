@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,6 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Mid Iowa Vending',
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(title: 'Mid Iowa Vending'),
     );
   }
@@ -32,18 +34,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,6 +89,14 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.transparent,
       elevation: 0.0,
       automaticallyImplyLeading: false,
+      actions: [
+        Builder(
+          builder: (context) => IconButton(
+            icon: Icon(FontAwesomeIcons.bars),
+            onPressed: () => Scaffold.of(context).openEndDrawer(),
+          ),
+        ),
+      ],
     );
   }
 
@@ -113,30 +111,30 @@ class _MyHomePageState extends State<MyHomePage> {
       GestureDetector(
         onTap: () { print("Vending Products was tapped!"); },
         child: Center(child:
-        Padding(
-            padding: EdgeInsets.only(left: 8),
-            child: Text("Vending Products", style: TextStyle(fontSize: 20))
-        )
+          Padding(
+              padding: EdgeInsets.only(left: 8),
+              child: Text("Vending Products", style: TextStyle(fontSize: 20))
+          )
         ),
       ),
       fromHamburgerMenu ? Padding(padding: EdgeInsets.only(top: 5)) : Container(),
       GestureDetector(
         onTap: () { print("Vending Services was tapped!"); },
         child: Center(child:
-        Padding(
-            padding: EdgeInsets.only(left: 8),
-            child: Text("Vending Services", style: TextStyle(fontSize: 20))
-        )
+          Padding(
+              padding: EdgeInsets.only(left: 8),
+              child: Text("Vending Services", style: TextStyle(fontSize: 20))
+          )
         ),
       ),
       fromHamburgerMenu ? Padding(padding: EdgeInsets.only(top: 5)) : Container(),
       GestureDetector(
         onTap: () { print("Contact Us was tapped!"); },
         child: Center(child:
-        Padding(
-            padding: EdgeInsets.only(left: 8, right: 8),
-            child: Text("Contact Us", style: TextStyle(fontSize: 20))
-        )
+          Padding(
+              padding: EdgeInsets.only(left: 8, right: 8),
+              child: Text("Contact Us", style: TextStyle(fontSize: 20))
+          )
         ),
       ),
     ];

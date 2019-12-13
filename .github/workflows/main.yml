@@ -25,4 +25,4 @@ jobs:
           git checkout master
           git add .
           git commit -m "Building Web"
-          git subtree push --prefix build/web origin gh-pages -f
+          git push origin `git subtree split --prefix dist master`:gh-pages --force

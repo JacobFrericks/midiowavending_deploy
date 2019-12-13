@@ -23,6 +23,9 @@ jobs:
           git config user.name "${GITHUB_NAME}"
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           git checkout master
+          flutter build web
+          git status
+          ls -la build/web
           git add .
           git commit -m "Building Web"
           git subtree split --prefix build/web -b gh-pages

@@ -1,10 +1,11 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,17 +33,21 @@ class _MyHomePageState extends State<MyHomePage> {
     return Stack(
       children: <Widget>[
         new Container(
-          height: MediaQuery.of(context).size.height / 2,
-          width: double.infinity,
-          decoration: new BoxDecoration(
-            image: new DecorationImage(
-              image: new AssetImage("assets/banner_1.jpeg"),
-              fit: BoxFit.cover,
+            height: MediaQuery.of(context).size.height / 2,
+            width: double.infinity,
+            decoration: new BoxDecoration(
+              image: new DecorationImage(
+                image: new AssetImage("assets/banner_1.jpeg"),
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-        ),
-        Container(
-          color: Color.fromRGBO(60, 60, 60, 0.19),
+            child: new BackdropFilter(
+                filter: new ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
+                child: new Container(
+                  decoration: new BoxDecoration(
+                      color: Colors.black.withOpacity(0.1)
+                  ),
+                ))
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
@@ -96,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
       fromHamburgerMenu ? Padding(padding: EdgeInsets.only(top: 5)) : Container(),
       GestureDetector(
         onTap: () { print("Home was tapped!"); },
-        child: Center(child: Text("Home", style: TextStyle(fontSize: 20))),
+        child: Center(child: Text("Home", style: TextStyle(fontSize: 20, color: Colors.white))),
       ),
       fromHamburgerMenu ? Padding(padding: EdgeInsets.only(top: 5)) : Container(),
       GestureDetector(
@@ -104,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Center(child:
           Padding(
               padding: EdgeInsets.only(left: 8),
-              child: Text("Vending Products", style: TextStyle(fontSize: 20))
+              child: Text("Vending Products", style: TextStyle(fontSize: 20, color: Colors.white))
           )
         ),
       ),
@@ -114,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Center(child:
           Padding(
               padding: EdgeInsets.only(left: 8),
-              child: Text("Vending Services", style: TextStyle(fontSize: 20))
+              child: Text("Vending Services", style: TextStyle(fontSize: 20, color: Colors.white))
           )
         ),
       ),
@@ -124,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Center(child:
           Padding(
               padding: EdgeInsets.only(left: 8, right: 8),
-              child: Text("Contact Us", style: TextStyle(fontSize: 20))
+              child: Text("Contact Us", style: TextStyle(fontSize: 20, color: Colors.white))
           )
         ),
       ),

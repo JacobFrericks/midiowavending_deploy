@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        new CustomBanner(),
+        new CustomBanner("Quality Vending", true),
         new CustomAppBar(widget.title),
       ],
     );

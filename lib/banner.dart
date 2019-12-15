@@ -57,7 +57,9 @@ class _ScreenState extends State<CustomBanner> {
             widget.text,
             style: TextStyle(color: Colors.white, fontSize: 25),
           ),
-          learnMoreButton()
+          widget.showButton
+              ? learnMoreButton()
+              : Container()
         ]
     );
   }

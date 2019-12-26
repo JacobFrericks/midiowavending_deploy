@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:midiowavending_flutter/footer.dart';
 import 'package:midiowavending_flutter/pictext.dart';
 
 import 'appbar.dart';
@@ -24,18 +25,19 @@ class _HomePageState extends State<HomePage> {
     var title2 = "Experience the highest quality in vending management service";
     var body2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet bibendum enim facilisis gravida neque convallis a. Ac felis donec et odio pellentesque diam volutpat commodo sed. Felis bibendum ut tristique et. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in.";
     var pic2 = "assets/preview2.jpg";
+    List<Widget> homepageWidgets = <Widget>[
+      banner(),
+      PicText(title1, body1, pic1, true),
+      PicText(title2, body2, pic2, false),
+      new Footer()
+    ];
+
     return Scaffold(
         body: ListView.builder (
             shrinkWrap: true,
-            itemCount: 3,
+            itemCount: homepageWidgets.length,
             itemBuilder: (BuildContext ctxt, int index) {
-              if (index == 0) {
-                return banner();
-              } else if(index == 1) {
-                return PicText(title1, body1, pic1, true);
-              } else {
-                return PicText(title2, body2, pic2, false);
-              }
+              return homepageWidgets[index];
             },
         )
     );

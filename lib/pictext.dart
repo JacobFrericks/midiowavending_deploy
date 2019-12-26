@@ -47,12 +47,12 @@ class _ScreenState extends State<PicText> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Text(
+              SelectableText(
                 widget.title,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 textAlign: TextAlign.center,
               ),
-              Text(widget.text)
+              SelectableText(widget.text)
             ],
           )
         )

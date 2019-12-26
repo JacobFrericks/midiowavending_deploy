@@ -18,7 +18,7 @@ class _ScreenState extends State<Footer> {
       onPressed: (){
         print("YAY!");
       },
-      child: Text("CONTACT US", style: TextStyle(color: Colors.white, fontSize: 15)),
+      child: SelectableText("CONTACT US", style: TextStyle(color: Colors.white, fontSize: 15)),
       shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(300)),
       borderSide: BorderSide(color: Colors.white, width: 3),
       highlightColor: Colors.red,

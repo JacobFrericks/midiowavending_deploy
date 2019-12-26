@@ -40,14 +40,14 @@ class _ScreenState extends State<CustomAppBar> {
   AppBar getAppBar(bool showLongAppBar) {
     if (showLongAppBar) {
       return new AppBar(
-        title: new Text(widget.title, style: TextStyle(fontSize: 25)),
+        title: new SelectableText(widget.title, style: TextStyle(fontSize: 25)),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: getAppBarActions(false),
       );
     }
     return new AppBar(
-      title: new Text(widget.title, style: TextStyle(fontSize: 25)),
+      title: new SelectableText(widget.title, style: TextStyle(fontSize: 25)),
       backgroundColor: Colors.transparent,
       elevation: 0.0,
       automaticallyImplyLeading: false,
@@ -67,7 +67,7 @@ class _ScreenState extends State<CustomAppBar> {
       fromHamburgerMenu ? Padding(padding: EdgeInsets.only(top: 5)) : Container(),
       GestureDetector(
         onTap: () { print("Home was tapped!"); },
-        child: Center(child: Text("Home", style: TextStyle(fontSize: 20, color: Colors.white))),
+        child: Center(child: SelectableText("Home", style: TextStyle(fontSize: 20, color: Colors.white))),
       ),
       fromHamburgerMenu ? Padding(padding: EdgeInsets.only(top: 5)) : Container(),
       GestureDetector(
@@ -75,7 +75,7 @@ class _ScreenState extends State<CustomAppBar> {
         child: Center(child:
         Padding(
             padding: EdgeInsets.only(left: 8),
-            child: Text("Vending Products", style: TextStyle(fontSize: 20, color: Colors.white))
+            child: SelectableText("Vending Products", style: TextStyle(fontSize: 20, color: Colors.white))
         )
         ),
       ),
@@ -85,7 +85,7 @@ class _ScreenState extends State<CustomAppBar> {
         child: Center(child:
         Padding(
             padding: EdgeInsets.only(left: 8),
-            child: Text("Vending Services", style: TextStyle(fontSize: 20, color: Colors.white))
+            child: SelectableText("Vending Services", style: TextStyle(fontSize: 20, color: Colors.white))
         )
         ),
       ),
@@ -95,7 +95,7 @@ class _ScreenState extends State<CustomAppBar> {
         child: Center(child:
         Padding(
             padding: EdgeInsets.only(left: 8, right: 8),
-            child: Text("Contact Us", style: TextStyle(fontSize: 20, color: Colors.white))
+            child: SelectableText("Contact Us", style: TextStyle(fontSize: 20, color: Colors.white))
         )
         ),
       ),

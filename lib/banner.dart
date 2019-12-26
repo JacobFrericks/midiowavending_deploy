@@ -53,7 +53,7 @@ class _ScreenState extends State<CustomBanner> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text(
+          SelectableText(
             widget.text,
             style: TextStyle(color: Colors.white, fontSize: 25),
           ),
@@ -69,7 +69,7 @@ class _ScreenState extends State<CustomBanner> {
       onPressed: (){
         print("YAY!");
       },
-      child: Text("LEARN MORE", style: TextStyle(color: Colors.white, fontSize: 15)),
+      child: SelectableText("LEARN MORE", style: TextStyle(color: Colors.white, fontSize: 15)),
       shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(300)),
       borderSide: BorderSide(color: Colors.white, width: 3),
       highlightColor: Colors.red,

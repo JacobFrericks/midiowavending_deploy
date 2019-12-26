@@ -34,7 +34,7 @@ class _ScreenState extends State<PicText> {
 
   Widget getImage() {
     return Padding(
-        padding: EdgeInsets.only(left: 20, right: 10, top: 40),
+        padding: EdgeInsets.all(20),
         child: Image.asset(widget.picLocation)
     );
   }
@@ -43,12 +43,12 @@ class _ScreenState extends State<PicText> {
     return Flexible(
         fit: FlexFit.loose,
         child: Padding(
-          padding: EdgeInsets.only(right: 20, left: 10, top: 20, bottom: 10),
+          padding: EdgeInsets.all(20),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Text(
-                  widget.title,
+                widget.title,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 textAlign: TextAlign.center,
               ),

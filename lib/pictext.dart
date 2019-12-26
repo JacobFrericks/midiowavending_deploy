@@ -15,12 +15,21 @@ class PicText extends StatefulWidget {
 class _ScreenState extends State<PicText> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-            children: <Widget>[
-              widget.picOnLeft ? getImage() : getDescription(),
-              widget.picOnLeft ? getDescription() : getImage(),
-            ],
-          );
+    if(MediaQuery.of(context).size.width > 800) {
+      return Row(
+        children: <Widget>[
+          widget.picOnLeft ? getImage() : getDescription(),
+          widget.picOnLeft ? getDescription() : getImage(),
+        ],
+      );
+    }
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        getImage(),
+        getDescription(),
+      ],
+    );
   }
 
   Widget getImage() {
@@ -31,15 +40,17 @@ class _ScreenState extends State<PicText> {
   }
 
   Widget getDescription() {
-    return Expanded(
+    return Flexible(
+        fit: FlexFit.loose,
         child: Padding(
-          padding: EdgeInsets.only(right: 20, left: 10),
+          padding: EdgeInsets.only(right: 20, left: 10, top: 20, bottom: 10),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Text(
                   widget.title,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                textAlign: TextAlign.center,
               ),
               Text(widget.text)
             ],

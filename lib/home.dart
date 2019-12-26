@@ -21,11 +21,16 @@ class _HomePageState extends State<HomePage> {
     var body1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet bibendum enim facilisis gravida neque convallis a. Ac felis donec et odio pellentesque diam volutpat commodo sed. Felis bibendum ut tristique et. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in.";
     var pic1 = "assets/preview1.jpg";
     return Scaffold(
-        body: Column(
-          children: <Widget>[
-            banner(),
-            PicText(title1, body1, pic1, true)
-          ]
+        body: ListView.builder (
+            shrinkWrap: true,
+            itemCount: 2,
+            itemBuilder: (BuildContext ctxt, int index) {
+              if (index == 0) {
+                return banner();
+              } else {
+                return PicText(title1, body1, pic1, true);
+              }
+            },
         )
     );
   }

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -13,10 +11,11 @@ class CustomAppBar extends StatefulWidget {
 }
 
 class _ScreenState extends State<CustomAppBar> {
-  var showLongAppBar = false;
 
   @override
   build(context) {
+    var showLongAppBar = MediaQuery.of(context).size.width > 800;
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: getAppBar(showLongAppBar),

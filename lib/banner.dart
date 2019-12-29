@@ -37,13 +37,11 @@ class _ScreenState extends State<CustomBanner> {
                       ),
                     ))
                 ),
-              widget.showButton
-                  ? Container(
-                      height: MediaQuery.of(context).size.height / 2,
-                      width: double.infinity,
-                      child: bannerText()
-                    )
-                  : Container()
+                Container(
+                  height: MediaQuery.of(context).size.height / 2,
+                  width: double.infinity,
+                  child: bannerText()
+                )
             ]
         )
     );

@@ -16,26 +16,26 @@ class _VendingProductsState extends State<VendingProducts> {
 
   @override
   Widget build(BuildContext context) {
-    var title1 = "Experience the highest quality in vending management service";
+    var title1 = "Find all the products you want in vending machines";
     var body1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet bibendum enim facilisis gravida neque convallis a. Ac felis donec et odio pellentesque diam volutpat commodo sed. Felis bibendum ut tristique et. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in.";
     var pic1 = "assets/preview3.jpg";
 
-    var title2 = "Experience the highest quality in vending management service";
+    var title2 = "Your complete satisfaction is important to us";
     var body2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet bibendum enim facilisis gravida neque convallis a. Ac felis donec et odio pellentesque diam volutpat commodo sed. Felis bibendum ut tristique et. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in.";
     var pic2 = "assets/preview4.jpg";
-    List<Widget> VendingProductsWidgets = <Widget>[
+    List<Widget> vendingProductsWidgets = <Widget>[
       banner(),
       PicText(title1, body1, pic1, true),
       PicText(title2, body2, pic2, false),
-      new Footer()
+      Footer()
     ];
 
     return Scaffold(
         body: ListView.builder (
           shrinkWrap: true,
-          itemCount: VendingProductsWidgets.length,
+          itemCount: vendingProductsWidgets.length,
           itemBuilder: (BuildContext ctxt, int index) {
-            return VendingProductsWidgets[index];
+            return vendingProductsWidgets[index];
           },
         )
     );
@@ -47,7 +47,7 @@ class _VendingProductsState extends State<VendingProducts> {
         width: double.infinity,
         child: Stack(
           children: <Widget>[
-            new CustomBanner("Quality Vending", true, "assets/banner_1.jpeg"),
+            new CustomBanner("Vending Products", false, "assets/banner_2.jpeg"),
             new CustomAppBar(),
           ],
         )

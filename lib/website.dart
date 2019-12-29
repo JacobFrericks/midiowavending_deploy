@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'pages/contact_us.dart';
+import 'pages/home.dart';
+import 'pages/products.dart';
+import 'pages/services.dart';
 
 class Website extends StatelessWidget {
   @override
@@ -7,7 +10,13 @@ class Website extends StatelessWidget {
     return MaterialApp(
       title: 'Mid Iowa Vending',
       debugShowCheckedModeBanner: false,
-      home: HomePage(title: 'Mid Iowa Vending'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomePage(),
+        '/products': (context) => VendingProducts(),
+        '/services': (context) => VendingServices(),
+        '/contactUs': (context) => ContactUs(),
+      }
     );
   }
 }

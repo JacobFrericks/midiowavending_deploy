@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 class CustomBanner extends StatefulWidget {
   final text;
   final showButton;
+  final picLocation;
 
-  CustomBanner(this.text, this.showButton);
+  CustomBanner(this.text, this.showButton, this.picLocation);
 
   @override
   _ScreenState createState() => _ScreenState();
@@ -23,7 +24,7 @@ class _ScreenState extends State<CustomBanner> {
                 width: double.infinity,
                 decoration: new BoxDecoration(
                   image: new DecorationImage(
-                    image: new AssetImage("assets/banner_1.jpeg"),
+                    image: new AssetImage(widget.picLocation),
                     fit: BoxFit.cover,
                   ),
                 ),

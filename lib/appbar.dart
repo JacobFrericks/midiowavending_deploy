@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomAppBar extends StatefulWidget {
-  final title;
-
-  CustomAppBar(this.title);
+  CustomAppBar();
 
   @override
   _ScreenState createState() => _ScreenState();
@@ -39,14 +37,14 @@ class _ScreenState extends State<CustomAppBar> {
   AppBar getAppBar(bool showLongAppBar) {
     if (showLongAppBar) {
       return new AppBar(
-        title: new SelectableText(widget.title, style: TextStyle(fontSize: 25)),
+        title: new SelectableText("Mid Iowa Vending", style: TextStyle(fontSize: 25)),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: getAppBarActions(false),
       );
     }
     return new AppBar(
-      title: new SelectableText(widget.title, style: TextStyle(fontSize: 25)),
+      title: new SelectableText("Mid Iowa Vending", style: TextStyle(fontSize: 25)),
       backgroundColor: Colors.transparent,
       elevation: 0.0,
       automaticallyImplyLeading: false,
@@ -65,37 +63,37 @@ class _ScreenState extends State<CustomAppBar> {
     return <Widget>[
       fromHamburgerMenu ? Padding(padding: EdgeInsets.only(top: 5)) : Container(),
       GestureDetector(
-        onTap: () { print("Home was tapped!"); },
-        child: Center(child: SelectableText("Home", style: TextStyle(fontSize: 20, color: Colors.white))),
+        onTap: () => Navigator.pushNamed(context, '/'),
+        child: Center(child: Text("Home", style: TextStyle(fontSize: 20, color: Colors.white))),
       ),
       fromHamburgerMenu ? Padding(padding: EdgeInsets.only(top: 5)) : Container(),
       GestureDetector(
-        onTap: () { print("Vending Products was tapped!"); },
+        onTap: () => Navigator.pushNamed(context, '/products'),
         child: Center(child:
-        Padding(
-            padding: EdgeInsets.only(left: 8),
-            child: SelectableText("Vending Products", style: TextStyle(fontSize: 20, color: Colors.white))
-        )
+          Padding(
+              padding: EdgeInsets.only(left: 8),
+              child: Text("Vending Products", style: TextStyle(fontSize: 20, color: Colors.white))
+          )
         ),
       ),
       fromHamburgerMenu ? Padding(padding: EdgeInsets.only(top: 5)) : Container(),
       GestureDetector(
-        onTap: () { print("Vending Services was tapped!"); },
+        onTap: () => Navigator.pushNamed(context, '/services'),
         child: Center(child:
-        Padding(
-            padding: EdgeInsets.only(left: 8),
-            child: SelectableText("Vending Services", style: TextStyle(fontSize: 20, color: Colors.white))
-        )
+          Padding(
+              padding: EdgeInsets.only(left: 8),
+              child: Text("Vending Services", style: TextStyle(fontSize: 20, color: Colors.white))
+          )
         ),
       ),
       fromHamburgerMenu ? Padding(padding: EdgeInsets.only(top: 5)) : Container(),
       GestureDetector(
-        onTap: () { print("Contact Us was tapped!"); },
+        onTap: () => Navigator.pushNamed(context, '/contactUs'),
         child: Center(child:
-        Padding(
-            padding: EdgeInsets.only(left: 8, right: 8),
-            child: SelectableText("Contact Us", style: TextStyle(fontSize: 20, color: Colors.white))
-        )
+          Padding(
+              padding: EdgeInsets.only(left: 8, right: 8),
+              child: Text("Contact Us", style: TextStyle(fontSize: 20, color: Colors.white))
+          )
         ),
       ),
     ];

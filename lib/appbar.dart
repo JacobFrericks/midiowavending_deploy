@@ -40,7 +40,8 @@ class _ScreenState extends State<CustomAppBar> {
         title: new SelectableText("Mid Iowa Vending", style: TextStyle(fontSize: 25)),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        actions: getAppBarActions(false),
+        automaticallyImplyLeading: false,
+        actions: getAppBarActions(false)
       );
     }
     return new AppBar(

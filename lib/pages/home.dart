@@ -30,14 +30,12 @@ class _HomePageState extends State<HomePage> {
       new Footer()
     ];
 
-    return Scaffold(
-        body: ListView.builder (
-            shrinkWrap: true,
-            itemCount: homepageWidgets.length,
-            itemBuilder: (BuildContext ctxt, int index) {
-              return homepageWidgets[index];
-            },
-        )
+    return ListView.builder (
+      shrinkWrap: true,
+      itemCount: homepageWidgets.length,
+      itemBuilder: (BuildContext ctxt, int index) {
+        return homepageWidgets[index];
+      },
     );
   }
 

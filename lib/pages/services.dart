@@ -30,14 +30,12 @@ class _VendingServicesState extends State<VendingServices> {
       Footer()
     ];
 
-    return Scaffold(
-        body: ListView.builder (
-          shrinkWrap: true,
-          itemCount: vendingServicesWidgets.length,
-          itemBuilder: (BuildContext ctxt, int index) {
-            return vendingServicesWidgets[index];
-          },
-        )
+    return ListView.builder (
+      shrinkWrap: true,
+      itemCount: vendingServicesWidgets.length,
+      itemBuilder: (BuildContext ctxt, int index) {
+        return vendingServicesWidgets[index];
+      },
     );
   }
 

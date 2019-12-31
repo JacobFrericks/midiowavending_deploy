@@ -12,10 +12,10 @@ class Website extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => HomePage(),
-        '/products': (context) => VendingProducts(),
-        '/services': (context) => VendingServices(),
-        '/contactUs': (context) => ContactUs(),
+        '/': (context) => Scaffold(body: HomePage()),
+        '/products': (context) => Scaffold(body: VendingProducts()),
+        '/services': (context) => Scaffold(body: VendingServices()),
+        '/contactUs': (context) => Scaffold(body: ContactUs()),
       }
     );
   }

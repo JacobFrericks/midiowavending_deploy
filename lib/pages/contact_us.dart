@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -34,14 +36,12 @@ class _ContactUsState extends State<ContactUs> {
       ),
     ];
 
-    return Scaffold(
-        body: ListView.builder (
-          shrinkWrap: true,
-          itemCount: contactUsWidgets.length,
-          itemBuilder: (BuildContext ctxt, int index) {
-            return contactUsWidgets[index];
-          },
-        )
+    return ListView.builder (
+        shrinkWrap: true,
+        itemCount: contactUsWidgets.length,
+        itemBuilder: (BuildContext ctxt, int index) {
+          return contactUsWidgets[index];
+        },
     );
   }
 
@@ -96,6 +96,15 @@ class _ContactUsState extends State<ContactUs> {
     );
   }
 
+  _showSnackBar() {
+    var successMessage = "Thank you! We will respond to your message soon!";
+    final snackbar = SnackBar(
+        content: new Text(successMessage, style: TextStyle(color: Colors.white), textAlign: TextAlign.center),
+        backgroundColor: Colors.green
+    );
+    Scaffold.of(context).showSnackBar(snackbar);
+  }
+
   String validateName(String value) {
     if (value.length < 3)
       return 'Name must be more than 2 charater';
@@ -132,10 +141,8 @@ class _ContactUsState extends State<ContactUs> {
     );
     print(response.statusCode);
     print(response.body);
-//    if(response.statusCode > 200 && response.statusCode < 300) {
-//      Scaffold
-//          .of(context)
-//          .showSnackBar(SnackBar(content: Text('Processing Data')));
-//    }
+    if(response.statusCode > 200 && response.statusCode < 300) {
+      _showSnackBar();
+    }
   }
 }

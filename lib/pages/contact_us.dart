@@ -19,7 +19,10 @@ class _ContactUsState extends State<ContactUs> {
   bool _autoValidate = false;
   String _name;
   String _email;
-  String _body;
+  String _message;
+  final TextEditingController _nameTextController = new TextEditingController();
+  final TextEditingController _emailTextController = new TextEditingController();
+  final TextEditingController _messageTextController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +65,7 @@ class _ContactUsState extends State<ContactUs> {
     return new Column(
       children: <Widget>[
         new TextFormField(
+          controller: _nameTextController,
           decoration: const InputDecoration(labelText: 'Name'),
           keyboardType: TextInputType.text,
           validator: validateName,
@@ -70,6 +74,7 @@ class _ContactUsState extends State<ContactUs> {
           },
         ),
         new TextFormField(
+          controller: _emailTextController,
           decoration: const InputDecoration(labelText: 'Email'),
           keyboardType: TextInputType.emailAddress,
           validator: validateEmail,
@@ -78,11 +83,12 @@ class _ContactUsState extends State<ContactUs> {
           },
         ),
         new TextFormField(
-          decoration: const InputDecoration(labelText: 'Body'),
+          controller: _messageTextController,
+          decoration: const InputDecoration(labelText: 'Message'),
           keyboardType: TextInputType.multiline,
           maxLines: null,
           onSaved: (String val) {
-            _body = val;
+            _message = val;
           },
         ),
         new SizedBox(
@@ -123,6 +129,7 @@ class _ContactUsState extends State<ContactUs> {
   }
 
   void _validateInputs() {
+
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       _sendEmail();
@@ -133,16 +140,23 @@ class _ContactUsState extends State<ContactUs> {
     }
   }
 
+  void _clearTextFields() {
+    _nameTextController.clear();
+    _emailTextController.clear();
+    _messageTextController.clear();
+  }
+
   void _sendEmail() async {
-    String postBody = '{"message": "$_body", "name": "$_name", "email": "$_email"}';
+    String postBody = '{"message": "$_message", "name": "$_name", "email": "$_email"}';
     var response = await http.post(
         'https://bejomkze58.execute-api.us-east-1.amazonaws.com/default/email-bobs-vending',
         body: postBody
     );
     print(response.statusCode);
     print(response.body);
-    if(response.statusCode > 200 && response.statusCode < 300) {
+    if(response.statusCode >= 200 && response.statusCode < 300) {
       _showSnackBar();
+      _clearTextFields();
     }
   }
 }

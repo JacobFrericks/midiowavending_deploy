@@ -72,8 +72,8 @@ class _ScreenState extends State<CustomAppBar> {
         onTap: () => Navigator.pushNamed(context, '/products'),
         child: Center(child:
           Padding(
-              padding: EdgeInsets.only(left: 8),
-              child: Text("Vending Products", style: TextStyle(fontSize: 20, color: Colors.white))
+              padding: EdgeInsets.only(left: 16),
+              child: Text("Products", style: TextStyle(fontSize: 20, color: Colors.white))
           )
         ),
       ),
@@ -82,8 +82,8 @@ class _ScreenState extends State<CustomAppBar> {
         onTap: () => Navigator.pushNamed(context, '/services'),
         child: Center(child:
           Padding(
-              padding: EdgeInsets.only(left: 8),
-              child: Text("Vending Services", style: TextStyle(fontSize: 20, color: Colors.white))
+              padding: EdgeInsets.only(left: 16),
+              child: Text("Services", style: TextStyle(fontSize: 20, color: Colors.white))
           )
         ),
       ),
@@ -92,8 +92,8 @@ class _ScreenState extends State<CustomAppBar> {
         onTap: () => Navigator.pushNamed(context, '/contactUs'),
         child: Center(child:
           Padding(
-              padding: EdgeInsets.only(left: 8, right: 8),
-              child: Text("Contact Us", style: TextStyle(fontSize: 20, color: Colors.white))
+              padding: EdgeInsets.only(left: 16, right: 16),
+              child: Text("Contact", style: TextStyle(fontSize: 20, color: Colors.white))
           )
         ),
       ),

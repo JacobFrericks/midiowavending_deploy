@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -23,6 +24,12 @@ class _ContactUsState extends State<ContactUs> {
   final TextEditingController _nameTextController = new TextEditingController();
   final TextEditingController _emailTextController = new TextEditingController();
   final TextEditingController _messageTextController = new TextEditingController();
+  bool _isSubmitButtonDisabled;
+
+  @override
+  void initState() {
+    _isSubmitButtonDisabled = false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -129,10 +136,15 @@ class _ContactUsState extends State<ContactUs> {
   }
 
   void _validateInputs() {
+    if (_isSubmitButtonDisabled) {
+      return null;
+    } else {
+      setState(() =>  _isSubmitButtonDisabled = true );
+    }
 
+    _sendEmail();
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
-      _sendEmail();
     } else {
       setState(() {
         _autoValidate = true;
@@ -148,15 +160,18 @@ class _ContactUsState extends State<ContactUs> {
 
   void _sendEmail() async {
     String postBody = '{"message": "$_message", "name": "$_name", "email": "$_email"}';
-    var response = await http.post(
-        'https://bejomkze58.execute-api.us-east-1.amazonaws.com/default/email-bobs-vending',
-        body: postBody
-    );
-    print(response.statusCode);
-    print(response.body);
-    if(response.statusCode >= 200 && response.statusCode < 300) {
-      _showSnackBar();
-      _clearTextFields();
-    }
+//    var response = await http.post(
+//        'https://bejomkze58.execute-api.us-east-1.amazonaws.com/default/email-bobs-vending',
+//        body: postBody
+//    );
+//    print(response.statusCode);
+//    print(response.body);
+    _showSnackBar();
+    print("DONE");
+//    if(response.statusCode >= 200 && response.statusCode < 300) {
+//      _showSnackBar();
+//      _clearTextFields();
+//    }
+    setState(() =>  _isSubmitButtonDisabled = false );
   }
 }

@@ -27,13 +27,7 @@
 .packages
 .pub-cache/
 .pub/
-/build/ios
-/build/flutter_assets
-/build/testfile.dill
-/build/app
-/build/web/*
-/build/Kotlin
-/build/unit_test_assets
+/build
 
 # Web related
 lib/generated_plugin_registrant.dart

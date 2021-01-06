@@ -35,7 +35,17 @@ class _ScreenState extends State<PicText> {
   Widget getImage() {
     return Padding(
         padding: EdgeInsets.all(20),
-        child: Image.asset(widget.picLocation)
+        child: new Container(
+          width: 500.0,
+          height: 334.0,
+          alignment: Alignment.center,
+          decoration: new BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(widget.picLocation),
+                fit: BoxFit.fill
+            ),
+          ),
+        )
     );
   }
 

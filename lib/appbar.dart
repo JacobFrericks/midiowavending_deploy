@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomAppBar extends StatefulWidget {
-  CustomAppBar();
+  Widget background;
+  CustomAppBar(this.background);
 
   @override
   _ScreenState createState() => _ScreenState();
@@ -17,21 +18,25 @@ class _ScreenState extends State<CustomAppBar> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: getAppBar(showLongAppBar),
-      endDrawer: showLongAppBar ? Container() :
-      Theme(
-          data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
-          child: Drawer(
-            child: ListView(
-                padding: EdgeInsets.zero,
-                children: getAppBarActions(true)
-            ),
-            elevation: 0,
-          )
-      ),
-      body: new Container(
-        color: Colors.transparent,
-      ),
+      endDrawer: getEndDrawer(showLongAppBar),
+      body: widget.background,
+      extendBodyBehindAppBar: true
     );
+  }
+
+  Widget getEndDrawer(bool showLongAppBar) {
+    return showLongAppBar
+        ? Container()
+        : Theme(
+            data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
+            child: Drawer(
+              child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: getAppBarActions(true)
+              ),
+              elevation: 0,
+            )
+        );
   }
 
   AppBar getAppBar(bool showLongAppBar) {

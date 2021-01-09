@@ -59,12 +59,7 @@ class _ContactUsState extends State<ContactUs> {
     return Container(
         height: MediaQuery.of(context).size.height / 2,
         width: double.infinity,
-        child: Stack(
-          children: <Widget>[
-            new CustomBanner("Contact Us", false, "assets/banner_4.jpeg"),
-            new CustomAppBar(),
-          ],
-        )
+        child: new CustomAppBar( new CustomBanner("Contact Us", false, "assets/banner_4.jpeg"))
     );
   }
 

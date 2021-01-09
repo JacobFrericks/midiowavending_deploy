@@ -78,7 +78,7 @@ class _ScreenState extends State<CustomBanner> {
       onPressed: (){
           print("YAY!");
         },
-      child: SelectableText(
+      child: Text(
           "LEARN MORE",
           style: TextStyle(color: Colors.white, fontSize: 15))
     );

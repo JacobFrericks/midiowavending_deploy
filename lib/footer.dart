@@ -34,7 +34,7 @@ class _ScreenState extends State<Footer> {
         borderRadius: new BorderRadius.circular(18.0),
       ),
       onPressed: () {
-        print("Contact Us Pressed!");
+        Navigator.pushNamed(context, '/contactUs');
       },
       child: Text(
         "CONTACT US",

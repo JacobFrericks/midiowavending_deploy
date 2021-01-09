@@ -75,9 +75,9 @@ class _ScreenState extends State<CustomBanner> {
         borderRadius: BorderRadius.circular(18.0),
         side: BorderSide(color: Colors.white, width: 2),
       ),
-      onPressed: (){
-          print("YAY!");
-        },
+      onPressed: () {
+        Navigator.pushNamed(context, '/contactUs');
+      },
       child: Text(
           "LEARN MORE",
           style: TextStyle(color: Colors.white, fontSize: 15))

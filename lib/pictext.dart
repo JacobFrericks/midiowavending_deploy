@@ -16,8 +16,8 @@ class _ScreenState extends State<PicText> {
 
   @override
   Widget build(BuildContext context) {
-    if(MediaQuery.of(context).size.width > 800) {
-      double padding = 300;
+    if(MediaQuery.of(context).size.width > 1100) {
+      double padding = 100;
       return Row(
         children: <Widget>[
           Padding(

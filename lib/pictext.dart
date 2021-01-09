@@ -53,7 +53,7 @@ class _ScreenState extends State<PicText> {
           decoration: new BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(widget.picLocation),
-                fit: BoxFit.fill
+                fit: BoxFit.fitHeight
             ),
           ),
         )

@@ -17,11 +17,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var title1 = "Experience the highest quality in vending management service";
-    var body1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet bibendum enim facilisis gravida neque convallis a. Ac felis donec et odio pellentesque diam volutpat commodo sed. Felis bibendum ut tristique et. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in.";
+    var body1 = "We have real people providing real service. You can benefit from our comprehensive, in-depth vending knowledge and service. We will establish and maintain highly satisfied customers and employees.";
     var pic1 = "assets/side_pic1.jpeg";
 
-    var title2 = "Experience the highest quality in vending management service";
-    var body2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet bibendum enim facilisis gravida neque convallis a. Ac felis donec et odio pellentesque diam volutpat commodo sed. Felis bibendum ut tristique et. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in.";
+    var title2 = "Your complete satisfaction is important to us";
+    var body2 = "We continually strive for excellence, and we create mutually beneficial relationships with our customers. To that end, we offer a 100% satisfaction guarantee. We know you'll love our products, but even if you don't please contact us and we will make sure you are satisfied!";
     var pic2 = "assets/side_pic2.jpeg";
     List<Widget> homepageWidgets = <Widget>[
       banner(),

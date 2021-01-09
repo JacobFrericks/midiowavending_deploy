@@ -17,7 +17,7 @@ class _VendingServicesState extends State<VendingServices> {
   @override
   Widget build(BuildContext context) {
     var title1 = "Your source for superior vending services at your property";
-    var body1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet bibendum enim facilisis gravida neque convallis a. Ac felis donec et odio pellentesque diam volutpat commodo sed. Felis bibendum ut tristique et. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in.";
+    var body1 = "We will provide you with the best in class vending solution for your employees or visitors. We provide a variety of machines to ensure responsive sales and customer service to ensure that everything is filled and working properly at all times.";
     var pic1 = "assets/side_pic6.jpeg";
 
     var title2 = "Latest technologies";

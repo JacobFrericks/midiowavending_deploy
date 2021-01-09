@@ -17,11 +17,11 @@ class _VendingProductsState extends State<VendingProducts> {
   @override
   Widget build(BuildContext context) {
     var title1 = "Find all the products you want in vending machines";
-    var body1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet bibendum enim facilisis gravida neque convallis a. Ac felis donec et odio pellentesque diam volutpat commodo sed. Felis bibendum ut tristique et. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in.";
+    var body1 = "Whether it's chocolate, candy, or snack food, we offer it all! We provide the highest quality soda and snack vending machines and management services that your company deserves!";
     var pic1 = "assets/side_pic3.jpeg";
 
-    var title2 = "Your complete satisfaction is important to us";
-    var body2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet bibendum enim facilisis gravida neque convallis a. Ac felis donec et odio pellentesque diam volutpat commodo sed. Felis bibendum ut tristique et. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in.";
+    var title2 = "We offer beverages too!";
+    var body2 = "We offer world class coffee services that will meet your individual company needs no matter what they may be. Our delicious warm beverages will have your visitors coming back over and over again!";
     var pic2 = "assets/side_pic4.jpeg";
     List<Widget> vendingProductsWidgets = <Widget>[
       banner(),

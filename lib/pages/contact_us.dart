@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:ui';
 import 'dart:io';
 
@@ -71,8 +72,8 @@ class _ContactUsState extends State<ContactUs> {
           decoration: const InputDecoration(labelText: 'Name'),
           keyboardType: TextInputType.text,
           validator: validateName,
-          onSaved: (String val) {
-            _name = val;
+          onChanged: (text) {
+            _name = text;
           },
         ),
         new TextFormField(
@@ -80,8 +81,8 @@ class _ContactUsState extends State<ContactUs> {
           decoration: const InputDecoration(labelText: 'Email'),
           keyboardType: TextInputType.emailAddress,
           validator: validateEmail,
-          onSaved: (String val) {
-            _email = val;
+          onChanged: (text) {
+            _email = text;
           },
         ),
         new TextFormField(
@@ -89,8 +90,8 @@ class _ContactUsState extends State<ContactUs> {
           decoration: const InputDecoration(labelText: 'Message'),
           keyboardType: TextInputType.multiline,
           maxLines: null,
-          onSaved: (String val) {
-            _message = val;
+          onChanged: (text) {
+            _message = text;
           },
         ),
         new SizedBox(
@@ -98,7 +99,12 @@ class _ContactUsState extends State<ContactUs> {
         ),
         new RaisedButton(
           onPressed: _validateInputs,
-          child: new Text('Submit'),
+          child: _isSubmitButtonDisabled
+                ? new Text('Loading...', style: TextStyle(color: Colors.white))
+                : new Text('Submit'),
+          color: _isSubmitButtonDisabled
+            ? Color(0xFFeeeeee)
+            : Color(0xFFD3D3D3)
         )
       ],
     );
@@ -113,9 +119,18 @@ class _ContactUsState extends State<ContactUs> {
     Scaffold.of(context).showSnackBar(snackbar);
   }
 
+  _showErrorSnackBar() {
+    var errorMessage = "Oops! Something happened! Try again later.";
+    final snackbar = SnackBar(
+        content: new Text(errorMessage, style: TextStyle(color: Colors.white), textAlign: TextAlign.center),
+        backgroundColor: Colors.red
+    );
+    Scaffold.of(context).showSnackBar(snackbar);
+  }
+
   String validateName(String value) {
     if (value.length < 3)
-      return 'Name must be more than 2 charater';
+      return 'Name must be more than 2 characters';
     else
       return null;
   }
@@ -134,7 +149,7 @@ class _ContactUsState extends State<ContactUs> {
     if (_isSubmitButtonDisabled) {
       return null;
     } else {
-      setState(() =>  _isSubmitButtonDisabled = true );
+      setState(() =>  _isSubmitButtonDisabled = true);
     }
 
     _sendEmail();
@@ -154,19 +169,26 @@ class _ContactUsState extends State<ContactUs> {
   }
 
   void _sendEmail() async {
-    String postBody = '{"message": "$_message", "name": "$_name", "email": "$_email"}';
-//    var response = await http.post(
-//        'https://bejomkze58.execute-api.us-east-1.amazonaws.com/default/email-bobs-vending',
-//        body: postBody
-//    );
-//    print(response.statusCode);
-//    print(response.body);
-    _showSnackBar();
-    print("DONE");
-//    if(response.statusCode >= 200 && response.statusCode < 300) {
-//      _showSnackBar();
-//      _clearTextFields();
-//    }
+    final http.Response response = await http.post(
+       'https://bejomkze58.execute-api.us-east-1.amazonaws.com/default/email-bobs-vending',
+       headers: <String, String>{
+         'Content-Type': 'application/json; charset=UTF-8',
+       },
+       body: jsonEncode(<String, String>{
+         "message": "$_message",
+         "name": "$_name",
+         "email": "$_email"
+       })
+    );
+
+    if(response.statusCode >= 200 && response.statusCode < 300) {
+      print(response.statusCode);
+      _showSnackBar();
+      _clearTextFields();
+    } else {
+      _showErrorSnackBar();
+    }
+
     setState(() =>  _isSubmitButtonDisabled = false );
   }
 }

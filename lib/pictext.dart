@@ -13,16 +13,27 @@ class PicText extends StatefulWidget {
 }
 
 class _ScreenState extends State<PicText> {
+
   @override
   Widget build(BuildContext context) {
     if(MediaQuery.of(context).size.width > 800) {
+      double padding = 300;
       return Row(
         children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(left: padding),
+            child: Container()
+          ),
           widget.picOnLeft ? getImage() : getDescription(),
           widget.picOnLeft ? getDescription() : getImage(),
+          Padding(
+              padding: EdgeInsets.only(right: padding),
+              child: Container()
+          ),
         ],
       );
     }
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -65,7 +76,7 @@ class _ScreenState extends State<PicText> {
               SelectableText(widget.text)
             ],
           )
-        )
+      )
     );
   }
 }

@@ -57,21 +57,30 @@ class _ScreenState extends State<CustomBanner> {
             style: TextStyle(color: Colors.white, fontSize: 25),
           ),
           widget.showButton
-              ? learnMoreButton()
+              ? Column(
+                  children: [
+                    Padding(padding: EdgeInsets.only(top: 10)),
+                    learnMoreButton()
+                  ]
+                )
               : Container()
         ]
     );
   }
 
   Widget learnMoreButton() {
-    return OutlineButton(
+    return FlatButton(
+        padding: EdgeInsets.all(18.0),
+        shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18.0),
+        side: BorderSide(color: Colors.white, width: 2),
+      ),
       onPressed: (){
-        print("YAY!");
-      },
-      child: SelectableText("LEARN MORE", style: TextStyle(color: Colors.white, fontSize: 15)),
-      shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(300)),
-      borderSide: BorderSide(color: Colors.white, width: 3),
-      highlightColor: Colors.red,
+          print("YAY!");
+        },
+      child: SelectableText(
+          "LEARN MORE",
+          style: TextStyle(color: Colors.white, fontSize: 15))
     );
   }
 }

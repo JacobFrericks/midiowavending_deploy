@@ -12,15 +12,15 @@ class _ScreenState extends State<Footer> {
   Widget build(BuildContext context) {
     return Column(
         children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(top: 10),
-          ),
+          Padding(padding: EdgeInsets.only(top: 10)),
           SelectableText(
               "Contact us today to learn more about our reliable vending services, and 100% satisfaction guarantee",
               style: TextStyle(fontSize: 15.0),
             textAlign: TextAlign.center,
           ),
+          Padding(padding: EdgeInsets.only(top: 5)),
           contactUsButton(),
+          Padding(padding: EdgeInsets.only(top: 10)),
         ]
     );
   }
@@ -29,7 +29,10 @@ class _ScreenState extends State<Footer> {
     return FlatButton(
       color: Color.fromRGBO(0, 128, 128, 1),
       textColor: Colors.white,
-      padding: EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(20.0),
+      shape: RoundedRectangleBorder(
+        borderRadius: new BorderRadius.circular(18.0),
+      ),
       onPressed: () {
         print("Contact Us Pressed!");
       },
@@ -37,10 +40,6 @@ class _ScreenState extends State<Footer> {
         "CONTACT US",
         style: TextStyle(fontSize: 15.0),
       ),
-      shape: RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(18.0),
-      ),
-
     );
   }
 }

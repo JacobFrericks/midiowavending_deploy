@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
     return Container(
         height: MediaQuery.of(context).size.height / 2,
         width: double.infinity,
-        child: new CustomAppBar(new CustomBanner("Quality Vending", true, "assets/banner_1.jpeg")),
+        child: new CustomAppBar(new CustomBanner("Quality Vending", true, "assets/banner_1.jpeg"), "Home"),
     );
   }
 }

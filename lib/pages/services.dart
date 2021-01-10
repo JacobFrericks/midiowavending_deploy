@@ -43,7 +43,7 @@ class _VendingServicesState extends State<VendingServices> {
     return Container(
         height: MediaQuery.of(context).size.height / 2,
         width: double.infinity,
-        child: new CustomAppBar(new CustomBanner("Vending Services", false, "assets/banner_3.jpeg")),
+        child: new CustomAppBar(new CustomBanner("Vending Services", false, "assets/banner_3.jpeg"), "Services"),
     );
   }
 }

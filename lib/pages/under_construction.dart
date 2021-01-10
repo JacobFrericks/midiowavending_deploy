@@ -22,7 +22,7 @@ class _UnderConstructionState extends State<UnderConstruction> {
       children: <Widget>[
         Align(
           alignment: Alignment.center,
-          child: Image.asset("under_construction.jpg"),
+          child: Image.asset("assets/under_construction.jpg"),
         ),
       ],
     );

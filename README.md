@@ -1,16 +1,8 @@
-# midiowavending_flutter
+## What is this?
+Simply, this is a website I developed for a friend.
 
-A new Flutter project.
+The site has four pages, and a construction page. You can check those out at the directory /lib/pages. 
+Other flutter code is located in the /lib directory.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+While this was developed in Flutter, there is no mobile app in either iOS or Android. 
+This is simply a website developed in Flutter. See the end product [here](https://www.midiowavending.com).

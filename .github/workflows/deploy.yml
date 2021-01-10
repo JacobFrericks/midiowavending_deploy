@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - master
-name: Test, Build and Release Web
+name: Build and Release Web
 jobs:
   build:
     name: Build Website

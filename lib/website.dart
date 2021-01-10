@@ -4,11 +4,15 @@ import 'pages/contact_us.dart';
 import 'pages/home.dart';
 import 'pages/products.dart';
 import 'pages/services.dart';
+import 'package:flutter/foundation.dart' as Foundation;
 
 class Website extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    bool underConstruction = true;
+    bool constructionToggle = true;
+    bool underConstruction = Foundation.kReleaseMode
+        ? constructionToggle
+        : false;
 
     if (underConstruction) {
       return MaterialApp(

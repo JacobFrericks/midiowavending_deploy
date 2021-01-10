@@ -18,7 +18,7 @@ class ContactUs extends StatefulWidget {
 
 class _ContactUsState extends State<ContactUs> {
   final _formKey = GlobalKey<FormState>();
-  bool _autoValidate = false;
+  AutovalidateMode _autoValidate = AutovalidateMode.disabled;
   String _name;
   String _email;
   String _message;
@@ -41,7 +41,7 @@ class _ContactUsState extends State<ContactUs> {
         margin: new EdgeInsets.all(15.0),
         child: new Form(
           key: _formKey,
-          autovalidate: _autoValidate,
+          autovalidateMode: _autoValidate,
           child: FormUI(),
         ),
       ),
@@ -152,12 +152,14 @@ class _ContactUsState extends State<ContactUs> {
       setState(() =>  _isSubmitButtonDisabled = true);
     }
 
-    _sendEmail();
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
+      _autoValidate = AutovalidateMode.disabled;
+      _sendEmail();
     } else {
       setState(() {
-        _autoValidate = true;
+        _autoValidate = AutovalidateMode.onUserInteraction;
+        _isSubmitButtonDisabled = false;
       });
     }
   }
@@ -190,6 +192,6 @@ class _ContactUsState extends State<ContactUs> {
       _showErrorSnackBar();
     }
 
-    setState(() =>  _isSubmitButtonDisabled = false );
+    setState(() =>  _isSubmitButtonDisabled = false);
   }
 }

@@ -27,6 +27,7 @@ jobs:
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           git checkout master
           rm -rf .gitignore
+          cp CNAME build/web
           git add .
           git commit -m "Building Web"
           git subtree split --prefix build/web -b gh-pages

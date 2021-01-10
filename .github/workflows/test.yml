@@ -1,0 +1,16 @@
+on:
+  push:
+    branches:
+      - '**'
+      - '!master'
+name: Test
+jobs:
+  build:
+    name: Build Website
+    runs-on: ubuntu-latest
+    container: cirrusci/flutter:beta
+    steps:
+      - uses: actions/checkout@v1
+      - run: flutter config --enable-web
+      - run: flutter pub get
+      - run: flutter test

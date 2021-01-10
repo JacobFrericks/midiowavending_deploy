@@ -2,19 +2,15 @@ on:
   push:
     branches:
       - master
-name: Test, Build and Release Web
+name: Build and Release Web
 jobs:
   build:
     name: Build Website
     runs-on: ubuntu-latest
+    container: cirrusci/flutter:beta
     steps:
       - uses: actions/checkout@v1
-      - uses: subosito/flutter-action@v1
-        with:
-          flutter-version: '1.7.8+hotfix.4'
-      - run: flutter channel beta; flutter upgrade; flutter config --enable-web
       - run: flutter pub get
-      - run: flutter test
       - run: flutter build web
       - name: Push Web Build
         env:

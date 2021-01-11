@@ -9,7 +9,7 @@ import 'package:flutter/foundation.dart' as Foundation;
 class Website extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    bool constructionToggle = true;
+    bool constructionToggle = false;
     bool underConstruction = Foundation.kReleaseMode
         ? constructionToggle
         : false;

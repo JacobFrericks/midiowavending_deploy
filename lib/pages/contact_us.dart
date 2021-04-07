@@ -34,15 +34,21 @@ class _ContactUsState extends State<ContactUs> {
 
   @override
   Widget build(BuildContext context) {
+    String phone = "515-778-4262";
 
     List<Widget> contactUsWidgets = <Widget>[
       banner(),
       new Container(
         margin: new EdgeInsets.all(15.0),
-        child: new Form(
-          key: _formKey,
-          autovalidateMode: _autoValidate,
-          child: FormUI(),
+        child: new Column(
+          children: <Widget>[
+            new SelectableText("Please call us at $phone or leave a message below. We will respond as soon as we can!"),
+            new Form(
+              key: _formKey,
+              autovalidateMode: _autoValidate,
+              child: FormUI(),
+            )
+          ]
         ),
       ),
     ];
